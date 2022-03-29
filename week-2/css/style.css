@@ -37,79 +37,40 @@ body div.wrapper header {
           align-items: center;
 }
 
-body div.wrapper header div.hamburger {
+body div.wrapper header .hamburger {
   background: url(../img/hamburger_icon.png);
   background-repeat: no-repeat;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 50px;
+  height: 50px;
   position: absolute;
   top: 0.3rem;
   right: 0.5rem;
 }
 
-@-webkit-keyframes anim {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  10% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  90% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  100% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-}
-
-@keyframes anim {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  10% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  90% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  100% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-}
-
-body div.wrapper header ul.menu {
+body div.wrapper header #menu-switcher {
   display: none;
 }
 
-body div.wrapper header ul.menuForJS {
+body div.wrapper header #menu-switcher:checked ~ .menu {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+body div.wrapper header ul.menu {
   list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   background-color: rgba(255, 255, 255, 0.5);
   width: 80%;
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-animation: anim 3s ease-in-out forwards;
-          animation: anim 3s ease-in-out forwards;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   z-index: 100;
 }
 
-body div.wrapper header ul.menuForJS li {
-  padding: 0.5rem 0;
+body div.wrapper header ul.menu li {
   margin: 0.5rem;
   text-align: center;
   background-color: white;
@@ -224,10 +185,12 @@ body footer {
             flex: 1;
     margin: auto;
   }
-  body div.wrapper header nav div.hamburger {
+  body div.wrapper header nav .hamburger {
     display: none;
   }
   body div.wrapper header nav ul.menu {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
     height: auto;
     width: auto;
     position: relative;
