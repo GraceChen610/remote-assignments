@@ -44,16 +44,29 @@ body{
             
             //選單動畫
             @keyframes anim {
-                0% { transform: translateY(-100%); }
-                10%  { transform: translateY(0%); }
-                90%  { transform: translateY(0%); }
-                100% { transform: translateY(-100%); }
+                0% { transform: translateX(100%); }
+                100%  { transform: translateX(0%); }
             }
             
             ul.menu{
                 display: none;
-                // position: absolute;
+                position: relative;
                 // top: -100px;
+
+                button{
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    height: 1.2rem; 
+                    width: 1.2rem;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 1.5rem;
+
+                    i{
+                        pointer-events: none;
+                    }
+                }
             }
 
             ul.menuForJS { 
@@ -61,13 +74,15 @@ body{
                 list-style-type: none;
                 display: flex;
                 flex-direction: column;
-                background-color: rgba($color: white, $alpha: 0.5);
-                width: 80%;
+                background-color: rgba(paleturquoise, $alpha: 0.5);
+                width: 50%;
+                height: 100vh;
                 position: absolute;
                 top: 0;
-                left: 0;
-                animation: anim 3s ease-in-out forwards ;
+                right: 0;
+                animation: anim 0.5s ease-in-out forwards ;
                 z-index: 100;
+                padding-top: 1.5rem;
                 
 
                 li{
