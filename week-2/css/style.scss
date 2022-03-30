@@ -28,7 +28,7 @@ body{
                 background-repeat: no-repeat;
                 width: 3rem;
                 height: 3rem;
-                position: absolute;
+                position: fixed;
                 top: 0.3rem;
                 right: 0.5rem;
                 z-index: 100;
@@ -50,18 +50,16 @@ body{
             
             ul.menu{
                 display: none;
-                position: relative;
-                // top: -100px;
 
                 button{
-                    position: absolute;
-                    right: 0px;
-                    top: 0px;
+                    position: fixed;
+                    right: 0.4rem;
+                    top: 0;
                     height: 1.2rem; 
                     width: 1.2rem;
                     background-color: transparent;
                     border: none;
-                    font-size: 1.5rem;
+                    font-size: 2rem;
 
                     i{
                         pointer-events: none;
@@ -74,12 +72,12 @@ body{
                 list-style-type: none;
                 display: flex;
                 flex-direction: column;
-                background-color: rgba(paleturquoise, $alpha: 0.5);
+                background-color: rgba(white, $alpha: 0.7);
                 width: 50%;
                 height: 100vh;
-                position: absolute;
+                position: fixed;
                 top: 0;
-                right: 0;
+                right: 0rem;
                 animation: anim 0.5s ease-in-out forwards ;
                 z-index: 100;
                 padding-top: 1.5rem;
@@ -189,9 +187,8 @@ body{
                 display: none;
             }
 
+            
             ul.menu {
-                //預設的選單介面
-                // transform: translateX(0%);
                 height: auto;
                 width: auto;
                 position: relative;
@@ -200,6 +197,10 @@ body{
                 flex-direction: row;
                 justify-content: space-around;
                 list-style-type: none;
+
+                button{
+                    display: none;
+                }
             }
 
         }
