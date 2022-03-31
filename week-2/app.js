@@ -33,7 +33,7 @@ addcontent.addEventListener("click", e => {
     //自動生孩子
     for(let i = 0; i < 4 ; i++){
     const img = document.createElement("img");
-    img.setAttribute("src","../img/html.png");
+    img.setAttribute("src",".//img/html.png");
     newDiv.appendChild(img);
     }
 
