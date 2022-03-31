@@ -26,7 +26,7 @@ function avg(data){
         sum += data.products[i].price
     }
 
-    ans = sum/3;
+    ans = sum/ data.products.length;
     console.log(ans);
 }
     avg({
