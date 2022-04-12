@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //AJAX 4步驟
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                    document.getElementById("ajax").innerHTML = xhr.responseText;
+                }else{
+                    alert(xhr.statusText);
+                }
+            }
+        };
+        xhr.open("GET","http://localhost:3000/getData?number=10");
+        xhr.send();
+    </script>
+</head>
+<body>
+    <div id="ajax">
+
+    </div>
+
+    <form action="/getData" method="GET">
+        <label for="number">請輸入數字</label>
+        <input type="number" id="number" name="number"> 
+        <!-- 有name的資料才會丟到後端 -->
+        <button id="button">submit</button>
+    </form>
+</body>
+</html>
