@@ -15,24 +15,26 @@ app.get('/', (req, res) => {
 //Assignment 2:
 app.get('/getData', (req, res) => {
     const { number } = req.query;
-     if(parseInt(number)){
-        //getData?number=正整數，得到計算結果
-        const typeNum = parseInt(number);
-        function sum(n){
-            if(n==1) return 1;
-            return sum(n-1)+n;
-        }
-        const ans = sum(typeNum)
-        res.render('getData',{ ans: ans});
-
-    }else if ( number === "xyz"){
-        //getData?number=xyz，show the "Wrong Parameter" message 
-        res.render('getData',{ ans: "Wrong Parameter",});
-
+    if ( number === undefined){
+        //getData，show the "Lack of Parameter" message
+        res.render('getData',{ ans: "Lack of Parameter"});
     }else{
-        //getData，show the "Lack of Parameter" message 
-        res.render('getData',{ ans: "Lack of Parameter",});
+        if((/(^[0-9]*[1-9][0-9]*$)/.test(number))){  //判斷是正整數
+            //getData?number=正整數，得到計算結果
+            const typeNum = parseInt(number);
+            function sum(n){
+                if(n==1) return 1;
+                return sum(n-1)+n;
+            }
+            const ans = sum(typeNum)
+            res.render('getData',{ ans: ans});
+    
+        }else{
+            //getData?number=xyz，show the "Wrong Parameter" message 
+            res.render('getData',{ ans: "Wrong Parameter"});
+        }
     }
+
 });
 
 

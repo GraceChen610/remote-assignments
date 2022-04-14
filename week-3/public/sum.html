@@ -13,12 +13,31 @@
                 if(xhr.status === 200){
                     document.getElementById("ajax").innerHTML = xhr.responseText;
                 }else{
-                    alert(xhr.statusText);
+                    console.log(xhr.statusText);
                 }
             }
         };
         xhr.open("GET","http://localhost:3000/getData?number=10");
         xhr.send();
+
+        //計算後再回傳到畫面上
+        let xhr2 = new XMLHttpRequest();
+        xhr2.onreadystatechange = function(){
+            if(xhr2.readyState === 4){
+                if(xhr2.status === 200){
+                    document.getElementById("ajax2").innerHTML = xhr2.responseText;
+                }else{
+                    console.log(xhr2.statusText);
+                }
+            }
+        };
+        xhr2.open("GET","http://localhost:3000/getData");
+
+        function sendAjax(){
+            xhr2.send();
+        }
+
+
     </script>
 </head>
 <body>
@@ -26,11 +45,15 @@
 
     </div>
 
-    <form action="/getData" method="GET">
+    <form action="" method="GET">
         <label for="number">請輸入數字</label>
         <input type="number" id="number" name="number"> 
         <!-- 有name的資料才會丟到後端 -->
-        <button id="button">submit</button>
+        <button id="button" onclick="sendAjax()">submit</button>
     </form>
+
+    <div id="ajax2">
+
+    </div>
 </body>
 </html>
