@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+    const src = "https://appworks-school.github.io/Remote-Aassigiment-Data/products";
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            const jsonToStr = JSON.parse(xhr.responseText);
+
+            for(let i = 0; i<jsonToStr.length; i++){
+                let name = jsonToStr[i].name;
+                let price = jsonToStr[i].price;
+                let description = jsonToStr[i].description;
+                const tr = document.querySelectorAll("tr")[i];
+                const td = document.createElement("td");
+                let text = document.createTextNode(`name: ${name}, price: ${price}, description: ${description}`);
+                tr.appendChild(td).appendChild(text);
+            }
+        }
+    }
+    xhr.open("GET",src);
+    xhr.send();
+
+    </script> -->
+    <script src="./callback.js"></script>
+    <style>
+        table, tr, th, td{
+            border:solid 1px black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div id="ajax">
+        <table>
+            <tr style="background-color: pink;"></tr>
+            <tr style="background-color: rgb(171, 250, 171);"></tr>
+            <tr style="background-color: yellow;"></tr>
+        </table>
+    </div>
+</body>
+</html>
