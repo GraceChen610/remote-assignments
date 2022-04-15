@@ -20,6 +20,24 @@
         xhr.open("GET","http://localhost:3000/getData?number=10");
         xhr.send();
 
+    </script>
+</head>
+<body>
+    <div id="ajax">
+
+    </div>
+
+    <!-- <form action="" method="GET"> -->
+        <label for="number">請輸入數字</label>
+        <input type="number" id="number"> 
+        <!-- 有name的資料才會丟到後端 -->
+        <button id="button" onclick="sendAjax()">submit</button>
+    <!-- </form> -->
+
+    <div id="ajax2">
+
+    </div>
+    <script>
         //計算後再回傳到畫面上
         let xhr2 = new XMLHttpRequest();
         xhr2.onreadystatechange = function(){
@@ -31,29 +49,13 @@
                 }
             }
         };
-        xhr2.open("GET","http://localhost:3000/getData");
-
         function sendAjax(){
+            let input = document.getElementById("number").value;
+            const number = parseInt(input);
+            xhr2.open("GET","http://localhost:3000/getData?number=" + number);
             xhr2.send();
         }
 
-
     </script>
-</head>
-<body>
-    <div id="ajax">
-
-    </div>
-
-    <form action="" method="GET">
-        <label for="number">請輸入數字</label>
-        <input type="number" id="number" name="number"> 
-        <!-- 有name的資料才會丟到後端 -->
-        <button id="button" onclick="sendAjax()">submit</button>
-    </form>
-
-    <div id="ajax2">
-
-    </div>
 </body>
 </html>
