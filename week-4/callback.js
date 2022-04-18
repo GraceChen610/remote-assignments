@@ -15,13 +15,14 @@ function delayedResult(n1, n2, delayTime, callback){
 
 function delayedResult(n1, n2, delayTime, callback){
     // your code here
-    window.setTimeout( a(n1, n2), delayTime);
+    window.setTimeout(  
+        function(){ 
+            result = n1 + n2;
+            callback(result);
+        }
+        , delayTime
+    );
 };
-
-function a(n1, n2){
-    result = n1 + n2 ;
-    return result;
-}
 
 delayedResult(4, 5, 3000, function(result){
     console.log(result);
@@ -40,7 +41,7 @@ function ajax(src, callback){
     xhr.onreadystatechange = function(){
         if(xhr.readyState === 4){
             const jsonToStr = JSON.parse(xhr.responseText);
-            render(jsonToStr);
+            callback(jsonToStr);
         }
     }
     xhr.open("GET",src);
