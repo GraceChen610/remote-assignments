@@ -1,4 +1,5 @@
 //Assignment 1: Callback Function
+/**
 function delayedResult(n1, n2, delayTime, callback){
     // your code here
     window.setTimeout( 
@@ -9,6 +10,17 @@ function delayedResult(n1, n2, delayTime, callback){
         }
         , delayTime
     );
+}
+ */
+
+function delayedResult(n1, n2, delayTime, callback){
+    // your code here
+    window.setTimeout( a(n1, n2), delayTime);
+};
+
+function a(n1, n2){
+    result = n1 + n2 ;
+    return result;
 }
 
 delayedResult(4, 5, 3000, function(result){
@@ -28,7 +40,7 @@ function ajax(src, callback){
     xhr.onreadystatechange = function(){
         if(xhr.readyState === 4){
             const jsonToStr = JSON.parse(xhr.responseText);
-            callback = render(jsonToStr);
+            render(jsonToStr);
         }
     }
     xhr.open("GET",src);
