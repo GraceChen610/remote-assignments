@@ -1,18 +1,4 @@
 //Assignment 1: Callback Function
-/**
-function delayedResult(n1, n2, delayTime, callback){
-    // your code here
-    window.setTimeout( 
-        function(){
-            result = n1 + n2 ;
-            console.log(result);
-            window.alert(result);
-        }
-        , delayTime
-    );
-}
- */
-
 function delayedResult(n1, n2, delayTime, callback){
     // your code here
     window.setTimeout(  
