@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 可愛的ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+    //注意，React 元件必須以大寫字母開頭大寫
+    function Header() {
+        return (
+          <header>
+            <H1 />
+            <Nav />
+          </header>
+        );
+    };
+
+    function H1() {
+        return (
+          <h1>
+            <a href="#">LOGO</a>  
+          </h1>
+        );
+    }
+
+    function Nav() {
+        return (
+          <nav>
+            <div id="menu-switcher" className="hamburger"></div>
+            <Menu />
+          </nav>
+        );
+    };
+
+    function Menu() {
+        return (
+          <ul className="menu">
+            <button><i className="fa-solid fa-xmark"></i></button>
+
+            <a href="#"><li>item 1</li></a>
+            <a href="#"><li>item 2</li></a>
+            <a href="#"><li>item 3</li></a>
+            <a href="#"><li>item 4</li></a>
+          </ul>
+        );
+    };
+
+
+
+    function Main() {
+        return (
+          <main>
+            <div className="banner">
+              <h1>Welcome</h1>
+            </div>
+
+            <Section />
+          </main>
+        );
+    };
+
+    function Section() {
+        return (
+          <section>
+            <h2>作業進度</h2>
+            <Contain />
+            <button className="btn">call to action</button> 
+          </section>
+        );
+    };
+
+    function Contain() {
+        return (
+          <div className="contain">
+            <img src=".//img/html.png" alt="HTML" title="HTML" />
+            <img src=".//img/css.png" alt="CSS" title="css" />
+            <img src=".//img/Mobile.png" alt="Mobile" title="Mobile" />
+            <img src=".//img/flexbox.png" alt="flexbox" title="flexbox" />
+            <img src=".//img/responsive.png" alt="responsive" title="responsive" />
+            <img src=".//img/git.png" alt="git" title="git" />
+          </div>
+        );
+    };
+
+/*
+    function () {
+        return (
+
+        );
+    };
+*/
+    function Footer() {
+        return (
+          <footer>
+            <p>&copy;copyright 2022</p>
+          </footer>
+        );
+    }
+
+      function MyApp() {
+        return (
+          <div className="wrapper"> 
+            <Header />
+            <Main />
+            <Footer />
+          </div>
+        );
+      };
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+  </body>
+</html>
