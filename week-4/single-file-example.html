@@ -117,14 +117,13 @@
           <section>
             <h2>作業進度</h2>
             <Contain />
-            {/* <Button /> */}
+            <Button />
           </section>
         );
     };
 
 
     class Button extends React.Component {
-      //未完成!!!
       state = { 
         add: ""
       };
@@ -139,7 +138,7 @@
         return(
           <div>
           <button className="btn" onClick={this.addPic}>call to action</button>
-          {this.state}
+          {this.state.add}
           </div>
         );
       }
