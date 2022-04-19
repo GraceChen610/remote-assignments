@@ -123,24 +123,27 @@
     };
 
 
-    // class Button extends React.Component {
-    //   //未完成!!!
-    //   state = { 
-    //     key: value
-    //   };
+    class Button extends React.Component {
+      //未完成!!!
+      state = { 
+        add: ""
+      };
 
-    //   addPic = () => {
-    //     this.setState( prevState => ({
-    //       key: value
-    //     }));
-    //   };
+      addPic = () => {
+        this.setState( prevState => ({
+          add: <Contain />
+        }));
+      };
 
-    //   render(){
-    //     return(
-    //       <button className="btn" onClick={this.addPic}>call to action</button>
-    //     );
-    //   }
-    // };
+      render(){
+        return(
+          <div>
+          <button className="btn" onClick={this.addPic}>call to action</button>
+          {this.state}
+          </div>
+        );
+      }
+    };
 
     function Contain() {
         return (
