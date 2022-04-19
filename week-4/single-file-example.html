@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+
     <!-- 可愛的ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -37,51 +38,97 @@
         );
     }
 
-    function Nav() {
-        return (
-          <nav>
-            <div id="menu-switcher" className="hamburger"></div>
-            <Menu />
-          </nav>
-        );
+    function Nav(props) {
+
+      return (
+        <nav>
+          <div id="menu-switcher" className="hamburger" onClick={() => props.showMenu}></div>
+          <Menu />
+        </nav>
+      );
     };
-
-    function Menu() {
-        return (
-          <ul className="menu">
-            <button><i className="fa-solid fa-xmark"></i></button>
-
-            <a href="#"><li>item 1</li></a>
-            <a href="#"><li>item 2</li></a>
-            <a href="#"><li>item 3</li></a>
-            <a href="#"><li>item 4</li></a>
-          </ul>
-        );
+ 
+    const showmenu = () =>{
+      const menulist = document.querySelector("ul");
+      //menulist.classList.toggle("menuForJS"); // Cannot read properties of null 
+      
     };
+    
 
+  function Menu() {
+    return(
+      <ul className="menu">
+        <button><i className="fa-solid fa-xmark"></i></button>
 
+        <a href="#"><li>item 1</li></a>
+        <a href="#"><li>item 2</li></a>
+        <a href="#"><li>item 3</li></a>
+        <a href="#"><li>item 4</li></a>
+      </ul>
+    );
+  };
 
     function Main() {
         return (
           <main>
-            <div className="banner">
-              <h1>Welcome</h1>
-            </div>
-
+            <Banner />            
             <Section />
           </main>
         );
     };
 
+    //注意React.Component都是大寫
+    class Banner extends React.Component {
+      
+      //狀態初始值
+      state = { 
+        text: "Welcome"
+      };
+
+      goodtime = () => {
+        this.setState( prevState => ({
+          text: "Have a Good Time!"
+        }));
+      };
+
+      render(){
+        return(
+          <div className="banner">
+            <h1 onClick={this.goodtime}> {this.state.text} </h1>
+          </div>
+        );
+      }
+    };
+    
     function Section() {
         return (
           <section>
             <h2>作業進度</h2>
             <Contain />
-            <button className="btn">call to action</button> 
+            {/* <Button /> */}
           </section>
         );
     };
+
+
+    // class Button extends React.Component {
+    //   //未完成!!!
+    //   state = { 
+    //     key: value
+    //   };
+
+    //   addPic = () => {
+    //     this.setState( prevState => ({
+    //       key: value
+    //     }));
+    //   };
+
+    //   render(){
+    //     return(
+    //       <button className="btn" onClick={this.addPic}>call to action</button>
+    //     );
+    //   }
+    // };
 
     function Contain() {
         return (
@@ -97,11 +144,33 @@
     };
 
 /*
-    function () {
-        return (
+  function Name() {
+      return (
 
-        );
+      );
+  };
+
+
+  class Name extends React.Component {
+    
+    state = { 
+      key: value
     };
+
+    fn_name = () => {
+      this.setState( prevState => ({
+        key: value
+      }));
+    };
+
+    render(){
+      return(
+ 
+      );
+    }
+  };
+
+
 */
     function Footer() {
         return (
