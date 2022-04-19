@@ -38,43 +38,55 @@
         );
     }
 
-    function Nav(props) {
+    class Nav extends React.Component {
+      state = { 
+        menu: ""
+      };
 
-      return (
-        <nav>
-          <div id="menu-switcher" className="hamburger" onClick={() => props.showMenu}></div>
-          <Menu />
-        </nav>
-      );
+      showMenu = () => {
+        this.setState( prevState => ({
+          menu: "menuForJS"
+        }));
+      };
+
+      closeMenu = () => {
+        this.setState( prevState => ({
+          menu: ""
+        }));
+      };
+
+      render() {
+        return (
+          <nav>
+            <div id="menu-switcher" className="hamburger" onClick={this.showMenu}></div>
+            
+            <ul className={"menu" +" "+ this.state.menu }>
+            <button onClick={this.closeMenu} ><i className="fa-solid fa-xmark"></i></button>
+
+            <a href="#"><li>item 1</li></a>
+            <a href="#"><li>item 2</li></a>
+            <a href="#"><li>item 3</li></a>
+            <a href="#"><li>item 4</li></a>
+            </ul>
+
+          </nav>
+        );
+      }
     };
- 
-    const showmenu = () =>{
-      const menulist = document.querySelector("ul");
-      //menulist.classList.toggle("menuForJS"); // Cannot read properties of null 
-      
-    };
-    
+   
+    // class Menu extends React.Component {
+    //   render() {
 
-  function Menu() {
-    return(
-      <ul className="menu">
-        <button><i className="fa-solid fa-xmark"></i></button>
-
-        <a href="#"><li>item 1</li></a>
-        <a href="#"><li>item 2</li></a>
-        <a href="#"><li>item 3</li></a>
-        <a href="#"><li>item 4</li></a>
-      </ul>
-    );
-  };
+    //   }
+    // };
 
     function Main() {
-        return (
-          <main>
-            <Banner />            
-            <Section />
-          </main>
-        );
+      return (
+        <main>
+          <Banner />            
+          <Section />
+        </main>
+      );
     };
 
     //注意React.Component都是大寫
